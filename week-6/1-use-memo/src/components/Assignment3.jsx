@@ -4,7 +4,7 @@ import React, { useState, useMemo } from 'react';
 
 export const Assignment3 = () => {
     const [items, setItems] = useState([
-        { name: 'Chocolates', value: 10 },
+        { name: 'Chocolates', value: 20 },
         { name: 'Chips', value: 20 },
         { name: 'Onion', value: 30 },
         { name: 'Tomato', value: 30 },
@@ -12,7 +12,13 @@ export const Assignment3 = () => {
     ]);
 
     // Your code starts here
-    const totalValue = 0;
+    const totalValue = useMemo(()=>{
+        let ans = 0;
+        for(let i=0;i<items.length;i++){
+            ans = ans + items[i].value
+        }
+        return ans;
+    },[items])
     // Your code ends here
     return (
         <div>
