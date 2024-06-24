@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { RecoilRoot, useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
-import { countAtom } from './store/atoms/count'
+import { countAtom, evenSelector } from './store/atoms/count'
 
 function App() {
   return (
@@ -29,6 +29,17 @@ function CountRenderer() {
   return (
     <div>
       {count}
+      <EvenCountRenderer/>
+    </div>
+  )
+}
+
+function EvenCountRenderer() {
+  const isEven = useRecoilValue(evenSelector);
+
+  return (
+    <div>
+      {isEven ? 'Even': 'Odd'}
     </div>
   )
 }
